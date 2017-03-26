@@ -14,7 +14,7 @@ const runEslint = new LoaderOptionsPlugin({
 })
 
 module.exports={
-    entry: path.resolve(__dirname,'client/js/main.js'),
+    entry: path.resolve(__dirname,'client/js/paces.js'),
     output: {
 	path: path.resolve(__dirname,'server/public/'),
 	filename: 'app.js'

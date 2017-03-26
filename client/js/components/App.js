@@ -2,26 +2,55 @@
 
 import 'stylesheets/base.sass'
 import React, {Component} from 'react'
-import Header from './layout/Header'
+import {FormGroup, ControlLabel, FormControl, Clearfix, Grid, Row, Col, Panel, Button, Jumbotron} from 'react-bootstrap'
+
+const title = (<h3>Patient record</h3>);
+
+const myInstance = (
+   <Grid>
+    <Jumbotron>
+    <h1><center>PACES Portal </center></h1>
+    <p><center>This is the data entry page for the Malaysia Telemedicine Project</center></p>
+    <p><center><Button bsStyle="primary">Learn more</Button></center></p>
+  </Jumbotron>
+      <Row className="show-grid">
+      <Col xs={18} xsOffset={0}>
+        <p></p>
+        <p></p>
+        <Panel header={title} bsStyle="primary">
+          Introductory text here
+          <p></p>
+          <p></p>
+          <FormGroup controlId="formControlsTextarea">
+            <ControlLabel>Record 1</ControlLabel>
+            <FormControl componentClass="textarea" placeholder="textarea" />
+          </FormGroup>
+          
+          <FormGroup controlId="formControlsTextarea">
+            <ControlLabel>Record 2</ControlLabel>
+            <FormControl componentClass="textarea" placeholder="textarea" />
+          </FormGroup>
+          
+          <FormGroup controlId="formControlsTextarea">
+            <ControlLabel>Record 3</ControlLabel>
+            <FormControl componentClass="textarea" placeholder="textarea" />
+          </FormGroup>
+          
+          Some more panel content here.
+         </Panel>
+      </Col>
+      <Clearfix visibleSmBlock><code>&lt;{'Clearfix visibleSmBlock'} /&gt;</code></Clearfix>  
+      <p><Button bsStyle="primary">Submit</Button></p>
+    </Row>      
+  </Grid>
+
+);
 
 class App extends Component{
-  static propTypes = {
-    place: React.PropTypes.string
-  }
-  megaLogger(message){
-    console.log(message)
-  }
-
-  render(){
-    let myvar = this.props.place
-
-    return(
-      <div>
-      <Header title="Happy Place" logger={this.megaLogger} />
-      <div className="body">
-      <p> Student is {myvar} </p>
-      </div>
-      </div>
+  static propTypes = {}
+  render() {
+    return (
+	myInstance
     )
   }
 }
