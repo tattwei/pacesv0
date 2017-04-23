@@ -1,7 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {Router, Route, IndexRoute} from 'react-router'
+import {BrowserRouter as Router,  Route, Link} from 'react-router-dom'
 import App from './components/App'
+import Test from './components/Test'
 import ImagesList from './components/images/ImageList'
 
 //const body = document.getElementsByTagName('body')[0]
@@ -9,10 +10,20 @@ const appId = document.getElementById("app")
 
 //ReactDOM.render(<App place="AliBoo"/>, body)
 
-ReactDOM.render((
+const BasicExample = ()=>(
   <Router>
-    <Route path="/" component={App}>
-      <Route path="image/:id" component={ImagesList} />
-    </Route>
+    <div>
+      <ul>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/doctor">Doctor</Link></li>
+      </ul>
+
+      <hr />
+
+      <Route exact path="/" component={App}/>
+      <Route path="/doctor" component={Test}/>
+    </div>
   </Router>
-),appId)
+)
+
+ReactDOM.render(<BasicExample /> ,appId)
