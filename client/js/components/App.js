@@ -3,11 +3,14 @@
 import 'stylesheets/base.sass'
 import React, {Component} from 'react'
 import {FormGroup, ControlLabel, FormControl, Clearfix, Grid, Row, Col, Panel, Button, Jumbotron} from 'react-bootstrap'
+import Header from './layout/Header'
 
 const title = (<h3>Patient record</h3>);
 
-const myInstance = (
-   <Grid>
+function MyInstance() {
+ 
+ return(
+  <Grid>
     <Jumbotron>
     <h1><center>PACES Portal </center></h1>
     <p><center>This is the data entry page for the Malaysia Telemedicine Project</center></p>
@@ -43,15 +46,23 @@ const myInstance = (
       <p><Button bsStyle="primary">Submit</Button></p>
     </Row>      
   </Grid>
-
-);
+ );	
+}
 
 class App extends Component{
   static propTypes = {}
   render() {
-    return (
-	myInstance
-    )
+     
+    return(
+      <div>
+        <div className="header">
+          <Header />
+        </div>
+        <div className="body">
+          <MyInstance />
+        </div>
+      </div>
+    );
   }
 }
 
