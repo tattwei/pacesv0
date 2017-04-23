@@ -16670,15 +16670,16 @@ var App = function (_Component) {
       return _react2.default.createElement(
         'div',
         null,
+        _react2.default.createElement(_Header2.default, null),
         _react2.default.createElement(
           'div',
-          { className: 'header' },
-          _react2.default.createElement(_Header2.default, null)
+          { className: 'entry' },
+          _react2.default.createElement(MyInstance, null)
         ),
         _react2.default.createElement(
           'div',
           { className: 'body' },
-          _react2.default.createElement(MyInstance, null)
+          this.props.children
         )
       );
     }
@@ -16687,7 +16688,9 @@ var App = function (_Component) {
   return App;
 }(_react.Component);
 
-App.propTypes = {};
+App.propTypes = {
+  children: _react2.default.PropTypes.node
+};
 exports.default = App;
 
 /***/ }),
@@ -16719,21 +16722,68 @@ var Header = function (_Component) {
   _inherits(Header, _Component);
 
   function Header() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
     _classCallCheck(this, Header);
 
-    return _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).apply(this, arguments));
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Header.__proto__ || Object.getPrototypeOf(Header)).call.apply(_ref, [this].concat(args))), _this), _this.tagSearch = function () {
+      console.log('tage search for ${this.refs.tag.value}');
+      _this.refs.tag.value = '';
+    }, _this.addImage = function () {
+      console.log('goto: /image/add');
+    }, _this.inputEnter = function (event) {
+      if (event.key == 'Enter') {
+        _this.tagSearch();
+      }
+    }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(Header, [{
-    key: "render",
+    key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        "div",
-        { className: "header" },
+        'div',
+        { className: 'header' },
         _react2.default.createElement(
-          "h1",
+          'h1',
           null,
-          " Hello from Header Component"
+          _react2.default.createElement(
+            'a',
+            { href: '#' },
+            ' Hello from Header Component'
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'main-search' },
+          _react2.default.createElement(
+            'div',
+            { className: 'input-group' },
+            _react2.default.createElement('input', { type: 'text', className: 'input', ref: 'tag', placeholder: 'Search...', onKeyPress: this.inputEnter }),
+            _react2.default.createElement(
+              'button',
+              { type: 'button', className: 'button', onClick: this.tagSearch },
+              _react2.default.createElement('i', { className: 'fa fa-search' }),
+              'Search'
+            )
+          ),
+          _react2.default.createElement(
+            'button',
+            { type: 'button', onClick: this.addImage, className: 'button add-button' },
+            _react2.default.createElement('i', { className: 'fa fa-plus' }),
+            'Add Image'
+          )
+        ),
+        _react2.default.createElement(
+          'a',
+          { href: '#' },
+          ' Login | Register '
         )
       );
     }

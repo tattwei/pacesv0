@@ -1,7 +1,7 @@
 // client/js/components/App.js
 
 import 'stylesheets/base.sass'
-import React, {Component} from 'react'
+import React, {PropTypes, Component} from 'react'
 import {FormGroup, ControlLabel, FormControl, Clearfix, Grid, Row, Col, Panel, Button, Jumbotron} from 'react-bootstrap'
 import Header from './layout/Header'
 
@@ -50,19 +50,22 @@ function MyInstance() {
 }
 
 class App extends Component{
-  static propTypes = {}
+  static propTypes = {
+    children: React.PropTypes.node
+  }
   render() {
      
     return(
       <div>
-        <div className="header">
-          <Header />
-        </div>
-        <div className="body">
+        <Header />
+        <div className="entry">
           <MyInstance />
         </div>
+        <div className="body">
+          {this.props.children}
+        </div>
       </div>
-    );
+    )
   }
 }
 
