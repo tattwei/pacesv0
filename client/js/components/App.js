@@ -4,6 +4,7 @@ import 'stylesheets/base.sass'
 import React, {PropTypes, Component} from 'react'
 import {FormGroup, ControlLabel, FormControl, Clearfix, Grid, Row, Col, Panel, Button, Jumbotron} from 'react-bootstrap'
 import Header from './layout/Header'
+import ChatPublisher from './Doctorvid'
 
 const title = (<h3>Patient record</h3>);
 
@@ -50,20 +51,14 @@ function MyInstance() {
 }
 
 class App extends Component{
-  static propTypes = {
-    children: React.PropTypes.node
-  }
-  render() {
-     
+  render(){     
     return(
       <div>
         <Header />
-        <div className="entry">
+        <div className="body">
           <MyInstance />
         </div>
-        <div className="body">
-          {this.props.children}
-        </div>
+        <ChatPublisher />
       </div>
     )
   }
