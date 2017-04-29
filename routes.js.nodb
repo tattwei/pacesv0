@@ -8,8 +8,6 @@ module.exports.initialize = function(app, router){
 
 	// ADD MY HTTP HANDLING METHODS HERE (POST, PUT, DELETE)
 	router.get('/', controllers.home.index)
-	router.get('/user/:userId', controllers.db.load)
-	router.put('/user/:userId', controllers.db.save)
 	//router.get('/api/images', api.images.list)
 	
 	// MIDDLEWARE HANDLING
